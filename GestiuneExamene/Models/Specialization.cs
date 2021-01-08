@@ -21,6 +21,7 @@ namespace GestiuneExamene.Models
         public virtual Faculty Faculty { get; set; }
 
         //one to one
+        [Required]
         public virtual Group Group { get; set; }
 
         //one to many

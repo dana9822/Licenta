@@ -26,6 +26,7 @@ namespace GestiuneExamene.Models
         public string Password { get; set; }
 
         //one to one
+        [Required]
         public virtual Group Group { get; set; }
 
         //one to many

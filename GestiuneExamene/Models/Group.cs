@@ -25,6 +25,7 @@ namespace GestiuneExamene.Models
         
         [Key]
         [Column(Order = 1)]
+        [Required]
         public virtual AcademicYear AcademicYear { get; set; }
 
         public int NumberOfStudents { get; set; }
