@@ -26,5 +26,9 @@ namespace GestiuneExamene.Models
         //one to many
         public ICollection<Exam> Exams { get; set; }
 
+        public int NumberOfSeats { get; set; }
+
+        public string ClassroomType { get; set; }
+
     }
 }
