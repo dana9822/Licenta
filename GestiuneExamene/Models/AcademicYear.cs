@@ -14,6 +14,8 @@ namespace GestiuneExamene.Models
         public string AcademicalYear { get; set; }  // inregistrare de forma 2019-2020 , 2020-2021 => stringul generat in fiecare an nou universitar pentru
                                                     //a fi inserat automat in aplicatie cand incepe un nou anUniv
         //one to one => o grupa x poate sa fie intr-un an universitar intr-un singur an (in acelasi timp).
+
+        [Required]
         public virtual Group Group { get; set; }
 
         //one to many

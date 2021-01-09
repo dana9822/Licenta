@@ -40,24 +40,25 @@ namespace GestiuneExamene.Models
         public Session Session { get; set; }
 
         //one to many
-        [Key]
-        [Column(Order = 4)]
-        public int GroupNumber { get; set; }
-
+        
         [Key]
         [Column(Order = 0)]
         public int SpecializationId { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        public string AcademicalYear { get; set; }
 
         [Key]
         [Column(Order = 2)]
         public int StudyingYear { get; set; }
 
         [Key]
-        [Column(Order = 1)]
-        public string AcademicalYear { get; set; }
+        [Column(Order = 4)]
+        public int GroupNumber { get; set; }
 
-        [ForeignKey("GroupNumber,SpecializationId,StudyingYear,AcademicalYear")]
-        public Group Group { get; set; }    // ==>4 PK anUniv,anStudiu,idSpecializare,idGrupa
+        [ForeignKey("SpecializationId,AcademicalYear,StudyingYear,GroupNumber")]
+        public virtual Group Group { get; set; }    // ==>4 PK anUniv,anStudiu,idSpecializare,idGrupa
 
         //==> 9 PK si 9FK
 

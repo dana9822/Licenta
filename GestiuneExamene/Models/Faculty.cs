@@ -24,6 +24,7 @@ namespace GestiuneExamene.Models
         public string Adress { get; set; }
 
         //one to one
+        [Required]
         public virtual Specialization Specialization { get; set; }
 
     }
