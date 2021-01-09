@@ -18,7 +18,6 @@ namespace GestiuneExamene.Models
         public string BuildingAdress { get; set; }
 
         //one to one
-        [Required]
         public virtual Classroom Classroom { get; set; }
     }
 }

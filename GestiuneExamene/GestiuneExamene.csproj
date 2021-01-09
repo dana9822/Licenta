@@ -174,6 +174,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101082253486_UpdatesToModelProperites.cs" />
+    <Compile Include="Migrations\202101082253486_UpdatesToModelProperites.Designer.cs">
+      <DependentUpon>202101082253486_UpdatesToModelProperites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Building.cs" />
@@ -253,7 +258,10 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Faculties\Index.cshtml" />
+    <Content Include="Views\Faculty\Index.cshtml" />
+    <Content Include="Views\Faculty\New.cshtml" />
+    <Content Include="Views\Faculty\Edit.cshtml" />
+    <Content Include="Views\Faculty\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -270,6 +278,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202101082253486_UpdatesToModelProperites.resx">
+      <DependentUpon>202101082253486_UpdatesToModelProperites.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

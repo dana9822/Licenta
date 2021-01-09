@@ -18,10 +18,10 @@ namespace GestiuneExamene.Models
         public string SpecializationDegreeLevel { get; set; }
 
         //one to one
+        [Required]
         public virtual Faculty Faculty { get; set; }
 
         //one to one
-        [Required]
         public virtual Group Group { get; set; }
 
         //one to many

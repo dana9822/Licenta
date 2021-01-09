@@ -1,0 +1,25 @@
+﻿@model GestiuneExamene.Models.Faculty
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Faculty", method: FormMethod.Post))
+{
+    @Html.Label("Name", "Denumire Facultate:")
+    <br />
+    @Html.TextBoxFor(b => b.Name, null, new { placeholder = "Introduceti denumirea facultatii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Adress", "Adresa:")
+    <br />
+    @Html.TextBoxFor(b => b.Adress, null, new { placeholder = "Introduceti adresa facultatii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Adress, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+

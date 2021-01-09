@@ -15,7 +15,6 @@ namespace GestiuneExamene.Models
 
 
         //one to one
-        [Required]
         public virtual Group Group { get; set; }
 
         //one to many

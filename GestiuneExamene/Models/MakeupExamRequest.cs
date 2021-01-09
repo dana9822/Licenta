@@ -17,6 +17,12 @@ namespace GestiuneExamene.Models
 
         //one to many
         [Key]
+        [Column(Order = 6)]
+        public string User { get; set; }
+        public Student StudentUser { get; set; }
+
+        //one to many
+        [Key]
         [Column(Order = 7)]
         public int SessionId { get; set; }
         public Session Session { get; set; }

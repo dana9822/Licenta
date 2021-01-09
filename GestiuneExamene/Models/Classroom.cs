@@ -17,10 +17,10 @@ namespace GestiuneExamene.Models
         [Column(Order = 10)]
         public int ClassroomFloor { get; set; }
 
-        //one to one
-
+        //one to one        
         [Key]
         [Column(Order = 9)]
+        [Required]
         public virtual Building Building { get; set; }
 
         //one to many

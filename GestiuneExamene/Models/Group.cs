@@ -17,10 +17,12 @@ namespace GestiuneExamene.Models
                                               //Am nevoie la unele tabele sa pun eu date ,iar PK-urile sunt de tip int
         [Key]
         [Column(Order = 0)]
+        [Required]
         public virtual Specialization Specialization { get; set; }
 
         [Key]
         [Column(Order = 2)]
+        [Required]
         public virtual StudyYear StudyYear { get; set; }
         
         [Key]
