@@ -17,10 +17,13 @@ namespace GestiuneExamene.Models
 
         public string SpecializationDegreeLevel { get; set; }
 
-        //one to one
-        [Required]
-        public virtual Faculty Faculty { get; set; }
+        [Column(Order = 20)]
+        public int FacultyId { get; set; }
 
+        //one to one
+        [ForeignKey ("FacultyId")]        
+        public virtual Faculty Faculty { get; set; }
+              
         //one to one
         public virtual Group Group { get; set; }
 

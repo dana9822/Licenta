@@ -106,6 +106,3 @@ C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\Gestiu
 C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\GestiuneExamene.csproj.CopyComplete
 C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\GestiuneExamene.dll
 C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\GestiuneExamene.pdb
-C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\GestiuneExamene.Migrations.UpdatesToModelProperites.resources
-C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\GestiuneExamene.csproj.GenerateResource.cache
-C:\Users\la-gheoda\source\repos\GestiuneExamene\GestiuneExamene\obj\Debug\GestiuneExamene.Migrations.UpdatesToModelProperites1.resources

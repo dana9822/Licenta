@@ -174,14 +174,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101090046456_UpdatesToModelProperites.cs" />
-    <Compile Include="Migrations\202101090046456_UpdatesToModelProperites.Designer.cs">
-      <DependentUpon>202101090046456_UpdatesToModelProperites.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101091428137_UpdatesToModelProperites1.cs" />
-    <Compile Include="Migrations\202101091428137_UpdatesToModelProperites1.Designer.cs">
-      <DependentUpon>202101091428137_UpdatesToModelProperites1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -282,14 +274,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101090046456_UpdatesToModelProperites.resx">
-      <DependentUpon>202101090046456_UpdatesToModelProperites.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101091428137_UpdatesToModelProperites1.resx">
-      <DependentUpon>202101091428137_UpdatesToModelProperites1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

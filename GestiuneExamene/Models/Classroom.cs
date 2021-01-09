@@ -16,11 +16,12 @@ namespace GestiuneExamene.Models
         [Key]
         [Column(Order = 10)]
         public int ClassroomFloor { get; set; }
-
-        //one to one        
         [Key]
         [Column(Order = 9)]
-        [Required]
+        public int BuildingId { get; set; }
+
+        //one to one        
+        [ForeignKey("BuildingId")]
         public virtual Building Building { get; set; }
 
         //one to many

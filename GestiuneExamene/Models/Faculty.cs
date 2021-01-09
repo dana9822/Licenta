@@ -10,7 +10,7 @@ namespace GestiuneExamene.Models
     public class Faculty
     {
         [Key]
-        [Column("faculty_id")] // in mod default numele campului in tabela era FacultyId
+        [Column(Order = 20)] 
         public int FacultyId { get; set; }
 
         [MinLength(3, ErrorMessage = "Lungimea denumirii institutiei mai mare de 3 caractere"),
