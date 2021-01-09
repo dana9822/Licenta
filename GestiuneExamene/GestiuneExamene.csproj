@@ -174,9 +174,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202101082253486_UpdatesToModelProperites.cs" />
-    <Compile Include="Migrations\202101082253486_UpdatesToModelProperites.Designer.cs">
-      <DependentUpon>202101082253486_UpdatesToModelProperites.cs</DependentUpon>
+    <Compile Include="Migrations\202101090046456_UpdatesToModelProperites.cs" />
+    <Compile Include="Migrations\202101090046456_UpdatesToModelProperites.Designer.cs">
+      <DependentUpon>202101090046456_UpdatesToModelProperites.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
@@ -280,8 +280,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101082253486_UpdatesToModelProperites.resx">
-      <DependentUpon>202101082253486_UpdatesToModelProperites.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101090046456_UpdatesToModelProperites.resx">
+      <DependentUpon>202101090046456_UpdatesToModelProperites.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

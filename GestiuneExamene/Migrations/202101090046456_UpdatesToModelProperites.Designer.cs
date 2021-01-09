@@ -13,7 +13,7 @@ namespace GestiuneExamene.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202101082253486_UpdatesToModelProperites"; }
+            get { return "202101090046456_UpdatesToModelProperites"; }
         }
         
         string IMigrationMetadata.Source
