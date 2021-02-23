@@ -174,12 +174,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102230024250_UpdatesToModelProperites.cs" />
+    <Compile Include="Migrations\202102230024250_UpdatesToModelProperites.Designer.cs">
+      <DependentUpon>202102230024250_UpdatesToModelProperites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102230034590_UpdatesToModelProperites1.cs" />
+    <Compile Include="Migrations\202102230034590_UpdatesToModelProperites1.Designer.cs">
+      <DependentUpon>202102230034590_UpdatesToModelProperites1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102230041495_UpdatesToModelProperites2.cs" />
+    <Compile Include="Migrations\202102230041495_UpdatesToModelProperites2.Designer.cs">
+      <DependentUpon>202102230041495_UpdatesToModelProperites2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102230058288_UpdatesToModelProperites3.cs" />
+    <Compile Include="Migrations\202102230058288_UpdatesToModelProperites3.Designer.cs">
+      <DependentUpon>202102230058288_UpdatesToModelProperites3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102230112581_UpdatesToModelProperites4.cs" />
+    <Compile Include="Migrations\202102230112581_UpdatesToModelProperites4.Designer.cs">
+      <DependentUpon>202102230112581_UpdatesToModelProperites4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Building.cs" />
     <Compile Include="Models\Classroom.cs" />
-    <Compile Include="Models\Coverage.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\Faculty.cs" />
     <Compile Include="Models\Group.cs" />
@@ -189,12 +208,13 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\SessionYear.cs" />
     <Compile Include="Models\Specialization.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\StudyYear.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubjectAllocation.cs" />
-    <Compile Include="Models\YearSession.cs" />
+    <Compile Include="Models\SubjectCoverage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -274,6 +294,23 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202102230024250_UpdatesToModelProperites.resx">
+      <DependentUpon>202102230024250_UpdatesToModelProperites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102230034590_UpdatesToModelProperites1.resx">
+      <DependentUpon>202102230034590_UpdatesToModelProperites1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102230041495_UpdatesToModelProperites2.resx">
+      <DependentUpon>202102230041495_UpdatesToModelProperites2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102230058288_UpdatesToModelProperites3.resx">
+      <DependentUpon>202102230058288_UpdatesToModelProperites3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102230112581_UpdatesToModelProperites4.resx">
+      <DependentUpon>202102230112581_UpdatesToModelProperites4.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

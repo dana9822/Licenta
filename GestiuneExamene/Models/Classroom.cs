@@ -10,26 +10,21 @@ namespace GestiuneExamene.Models
     public class Classroom
     {
         [Key]
-        [Column(Order = 11)]
-        public int ClassroomNumber { get; set; }
-
+        [Column(Order = 0)]
+        [ForeignKey("Building")]
+        public int IdCorp { get; set; }
         [Key]
-        [Column(Order = 10)]
-        public int ClassroomFloor { get; set; }
+        [Column(Order = 1)]
+        public int NrSala { get; set; }
         [Key]
-        [Column(Order = 9)]
-        public int BuildingId { get; set; }
+        [Column(Order = 2)]
+        public int Etaj { get; set; }
 
-        //one to one        
-        [ForeignKey("BuildingId")]
+        public int NrLocuri { get; set; }
+        public string TipSala { get; set; }
+
         public virtual Building Building { get; set; }
-
-        //one to many
-        public ICollection<Exam> Exams { get; set; }
-
-        public int NumberOfSeats { get; set; }
-
-        public string ClassroomType { get; set; }
-
+        public virtual ICollection<MakeupExam> MakeupExams { get; set; }
+        public virtual ICollection<Exam> Exams { get; set; }
     }
 }

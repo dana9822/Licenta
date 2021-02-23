@@ -9,15 +9,17 @@ namespace GestiuneExamene.Models
 {
     public class Building
     {
+        public Building()
+        {
+            Classrooms = new HashSet<Classroom>();
+        }
+
         [Key]
-        [Column(Order = 9)]
-        public int BuildingId { get; set; }
+        [Column(Order = 0)]
+        public int IdCorp { get; set; }
+        public string DenumireCorp { get; set; }
+        public string Adresa { get; set; }
 
-        public string BuildingName { get; set; }
-
-        public string BuildingAdress { get; set; }
-
-        //one to one
-        public virtual Classroom Classroom { get; set; }
+        public virtual ICollection<Classroom> Classrooms { get; set; }
     }
 }

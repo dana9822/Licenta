@@ -9,31 +9,24 @@ namespace GestiuneExamene.Models
 {
     public class SubjectAllocation
     {
-        //Clasa de Alocare Discipline (SubjectAllocation) ar trebui cumva completata/inserate date ,atunci cand se adauga disciplina noua=>sa o si alocam
-        public string Semester { get; set; }
-
-        public string EvaluationType { get; set; }
-
-        public string Status { get; set; }
-
-        //one to many
         [Key]
-        [Column(Order = 0)]
-        public int SpecializationID { get; set; }
-        public Specialization Specialization { get; set; }
-
-        //one to many
+        [Column(Order = 1)]
+        [ForeignKey("Specialization")]
+        public int IdSpecializare { get; set; }
         [Key]
         [Column(Order = 2)]
-        public int StudyingYear { get; set; }
-
-        public StudyYear StudyYear { get; set; }
-
-        //one to many
+        [ForeignKey("StudyYear")]
+        public int AnStudiu { get; set; }
         [Key]
-        [Column(Order = 13)]
-        public int SubjectId { get; set; }
+        [Column(Order = 3)]
+        [ForeignKey("Subject")]
+        public int IdDisciplina { get; set; }
+        public string Semestru { get; set; }
+        public string TipEvaluare { get; set; }
+        public string Status { get; set; }
 
-        public Subject Subject { get; set; }
+        public virtual StudyYear StudyYear { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual Specialization Specialization { get; set; }
     }
 }

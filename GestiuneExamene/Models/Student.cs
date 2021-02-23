@@ -9,29 +9,36 @@ namespace GestiuneExamene.Models
 {
     public class Student
     {
-        [Key]
-        [Column(Order = 5)]
-        public int StudentRegNumber { get; set; }
-
-        public string StudentFirstName { get; set; }
-
-        public string StudentLastName { get; set; }
-
-        public string IsStudentStatus { get;set; }  // valori = activ/inactiv
+        //public Student()
+        //{
+        //    SolicitareRestanta = new HashSet<SolicitareRestanta>();
+        //}
 
         [Key]
-        [Column(Order = 6)]
-        public string User { get; set; }
+        [Column(Order = 0)]
+        [ForeignKey("Group")]
+        public int IdGrupa { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        [ForeignKey("Group")]
+        public int IdSpec { get; set; }
+        [Key]
+        [Column(Order = 2)]
+        [ForeignKey("Group")]
+        public int AnStudiu { get; set; }
+        [Key]
+        [Column(Order = 3)]
+        [ForeignKey("Group")]
+        public int AnUniv { get; set; }
+        [Key]
+        [Column(Order = 4)]
+        public int Matricola { get; set; }
+        public string Username { get; set; }
+        public string Nume { get; set; }
+        public string Prenume { get; set; }
+        public string StatusStudent { get; set; }
 
-        public string Password { get; set; }
-
-        //one to one
-        [Required]
         public virtual Group Group { get; set; }
-
-        //one to many
-        public ICollection<MakeupExamRequest> MakeupExamRequests { get; set; }
-
-
+        public virtual ICollection<MakeupExamRequest> MakeupExamRequests { get; set; }
     }
 }

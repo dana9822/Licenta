@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,18 +8,19 @@ namespace GestiuneExamene.Models
 {
     public class StudyYear
     {
+        //public Anstudiu()
+        //{
+        //    Acoperire = new HashSet<Acoperire>();
+        //    AlocareDisciplina = new HashSet<AlocareDisciplina>();
+        //    Grupa = new HashSet<Grupa>();
+        //}
+
         [Key]
-        [Column(Order = 2)]
-        public int StudyingYear { get; set; }  //pastrez doar 6 inregistrari,fara noi inregistrari , anul de studiu 1-6 => 1,2,3,4,5,6
+        public int StudyYearId { get; set; }
+        public string AnStudiu { get; set; }
 
-
-        //one to one
-        public virtual Group Group { get; set; }
-
-        //one to many
-        public ICollection<SubjectAllocation> SubjectAllocations { get; set; }
-
-        //one to many
-        public ICollection<Coverage> Coverages { get; set; }
+        public virtual ICollection<Group> Group { get; set; }
+        public virtual ICollection<SubjectCoverage> SubjectCoverages { get; set; }
+        public virtual ICollection<SubjectAllocation> SubjectAllocations { get; set; }
     }
 }

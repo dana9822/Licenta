@@ -4,34 +4,34 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GestiuneExamene.Models
 {
     public class Specialization
     {
+        //public Specialization()
+        //{
+        //    Group = new HashSet<Group>();
+        //}
         [Key]
-        [Column(Order = 0)]
-        public int SpecializationID { get; set; }
+        public int IDSpecializare { get; set; }
 
-        public string SpecializationName { get; set; }
+        public string DenumireSpecializare { get; set; }
 
-        public string SpecializationDegreeLevel { get; set; }
+        public string FormaInvatamant { get; set; }
 
-        public int FacultyId { get; set; }
+        [ForeignKey("Faculty")]
+        public int IdFacultate { get; set; }
 
         //one to one
-        [ForeignKey ("FacultyI")]
-        [Column(Order = 20)]
         //[Required]
         public virtual Faculty Faculty { get; set; }
-              
-        //one to one
-        public virtual Group Group { get; set; }
+        public virtual ICollection<Group> Group { get; set; }
+        public virtual ICollection<SubjectCoverage> SubjectCoverages { get; set; }
+        public virtual ICollection<SubjectAllocation> SubjectAllocations { get; set; }
 
-        //one to many
-        public ICollection<SubjectAllocation> SubjectAllocations { get; set; }
-
-        //one to many
-        public ICollection<Coverage> Coverages { get; set; }
+        [NotMapped]
+        public IEnumerable<SelectListItem> FacultiesList { get; set; }
     }
 }

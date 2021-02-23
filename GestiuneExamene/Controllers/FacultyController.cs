@@ -72,11 +72,11 @@ namespace GestiuneExamene.Controllers
                 {
                     Faculty faculty = db.Faculties // expresie LINQ
                    //.Include("Publisher")
-                    .SingleOrDefault(b => b.FacultyId.Equals(facultyRequest.FacultyId));
+                    .SingleOrDefault(b => b.IdFacultate.Equals(facultyRequest.IdFacultate));
                     if (TryUpdateModel(faculty)) // de ce TryUpdateModel?
                     {
-                        faculty.Name = facultyRequest.Name;
-                        faculty.Adress = facultyRequest.Adress;
+                        faculty.DenumireFacultate = facultyRequest.DenumireFacultate;
+                        faculty.AdresaFacultate = facultyRequest.AdresaFacultate;
                         db.SaveChanges();
                     }
                     return RedirectToAction("Index");

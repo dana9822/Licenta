@@ -9,34 +9,42 @@ namespace GestiuneExamene.Models
 {
     public class MakeupExamRequest
     {
-        //one to many
         [Key]
-        [Column(Order = 5)]
-        public int StudentRegNumber { get; set; }
-        public Student Student { get; set; }
-
-        //one to many
-        [Key]
-        [Column(Order = 6)]
-        public string User { get; set; }
-        public Student StudentUser { get; set; }
-
-        //one to many
-        [Key]
-        [Column(Order = 7)]
-        public int SessionId { get; set; }
-        public Session Session { get; set; }
-
-        //one to many
+        [Column(Order = 0)]
+        [ForeignKey("Student")]
+        public int IdGrupa { get; set; }
         [Key]
         [Column(Order = 1)]
-        public string AcademicalYear { get; set; }
-        public AcademicYear AcademicYear { get; set; }
-
-        //one to many
+        [ForeignKey("Student")]
+        public int IdSpec { get; set; }
         [Key]
-        [Column(Order = 13)]
-        public int SubjectId  { get; set; }
-        public Subject Subject { get; set; }
+        [Column(Order = 2)]
+        [ForeignKey("Student")]
+        public int AnStudiu { get; set; }
+        [Key]
+        [Column(Order = 3)]
+        [ForeignKey("Student")]
+        public int AnUnivStudent { get; set; }
+        [Key]
+        [Column(Order = 4)]
+        [ForeignKey("Student")]
+        public int Matricola { get; set; }
+        [Key]
+        [Column(Order = 5)]
+        [ForeignKey("Session")]
+        public int IdSesiune { get; set; }
+        [Key]
+        [Column(Order = 6)]
+        [ForeignKey("Subject")]
+        public int IdDisc { get; set; }
+        [Key]
+        [Column(Order = 7)]
+        [ForeignKey("AcademicYear")]
+        public int AnUnivCurent { get; set; }
+
+        public virtual AcademicYear AcademicYear { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual Session Session { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

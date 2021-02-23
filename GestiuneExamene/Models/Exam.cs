@@ -9,65 +9,50 @@ namespace GestiuneExamene.Models
 {
     public class Exam
     {
-        //one to many
-        [Key]
-        [Column(Order = 11)]
-        public int ClassroomNumber { get; set; }
-        [Key]
-        [Column(Order = 10)]
-        public int ClassroomFloor { get; set; }
-        [Key]
-        [Column(Order = 9)]
-        public int BuildingId { get; set; }
-
-        [ForeignKey("ClassroomNumber,ClassroomFloor,BuildingId")]
-        public Classroom Classroom { get; set; }  //=> 3 PK  idCorp,nrSala,Etaj
-
-        //one to many
-        [Key]
-        [Column(Order = 13)]
-        public int SubjectId { get; set; }
-
-        [ForeignKey("SubjectId")]
-        public Subject Subject { get; set; }        //=> 1PK idDisciplina
-
-        //one to many
-        [Key]
-        [Column(Order = 7)]
-        public int SessionId { get; set; }       //=> 1PK idSesiune
-
-        [ForeignKey("SessionId")]
-        public Session Session { get; set; }
-
-        //one to many
-        
         [Key]
         [Column(Order = 0)]
-        public int SpecializationId { get; set; }
-
+        [ForeignKey("Classroom")]
+        public int IdCorp { get; set; }
         [Key]
         [Column(Order = 1)]
-        public string AcademicalYear { get; set; }
-
+        [ForeignKey("Classroom")]
+        public int NrSala { get; set; }
         [Key]
         [Column(Order = 2)]
-        public int StudyingYear { get; set; }
-
+        [ForeignKey("Classroom")]
+        public int Etaj { get; set; }
         [Key]
         [Column(Order = 4)]
-        public int GroupNumber { get; set; }
+        [ForeignKey("Group")]
+        public int IdGrupa { get; set; }
+        [Key]
+        [Column(Order = 5)]
+        [ForeignKey("Group")]
+        public int IdSpecializare { get; set; }
+        [Key]
+        [Column(Order = 6)]
+        [ForeignKey("Group")]
+        public int AnStudiu { get; set; }
+        [Key]
+        [Column(Order = 7)]
+        [ForeignKey("Group")]
+        public int AnUniversitar { get; set; }
+        [Key]
+        [Column(Order = 8)]
+        [ForeignKey("Session")]
+        public int IdSesiune { get; set; }
+        [Key]
+        [Column(Order = 9)]
+        [ForeignKey("Subject")]
+        public int IdDisciplina { get; set; }
+        public string ModEvaluare { get; set; }
+        public DateTime Data { get; set; }
+        public int Ora { get; set; }
+        public string Durata { get; set; }
 
-        [ForeignKey("SpecializationId,AcademicalYear,StudyingYear,GroupNumber")]
-        public virtual Group Group { get; set; }    // ==>4 PK anUniv,anStudiu,idSpecializare,idGrupa
-
-        //==> 9 PK si 9FK
-
-        public string EvaluationMode { get; set; }
-
-        public DateTime ExamDate { get; set; }
-
-        public int ExamHour { get; set; }
-
-        public int ExamTime { get; set; }
+        public virtual Group Group { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual Session Session { get; set; }
+        public virtual Classroom Classroom { get; set; }
     }
 }

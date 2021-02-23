@@ -9,45 +9,43 @@ namespace GestiuneExamene.Models
 {
     public class MakeupExam
     {
-        //one to many
-        [Key,Column(Order = 11)]
-        public int ClassroomNumber { get; set; }
-        public Classroom Classroom { get; set; }  //=> 3 PK  idCorp,nrSala,Etaj
-
-        //one to many
-        [Key, Column(Order = 12)]
-        public int ProfessorId { get; set; }
-        public Professor Professor { get; set; } 
-
-        //one to many
         [Key]
-        [Column(Order = 13)]
-        public int SubjectId { get; set; }
-        public Subject Subject { get; set; }
-
-        //one to many
-        [Key]
-        [Column(Order = 7)]
-        public int SessionId { get; set; }
-        public Session Session { get; set; }
-
-        //one to many
+        [Column(Order = 0)]
+        [ForeignKey("Classroom")]
+        public int IdCorp { get; set; }
         [Key]
         [Column(Order = 1)]
-        public string AcademicalYear { get; set; }
-        public AcademicYear AcademicYear { get; set;}
-
+        [ForeignKey("Classroom")]
+        public int NrSala { get; set; }
         [Key]
-        [Column(Order = 14)]
-        public DateTime MakeupExamDate { get; set; }
-
+        [Column(Order = 2)]
+        [ForeignKey("Classroom")]
+        public int Etaj { get; set; }
         [Key]
-        [Column(Order = 15)]
-        public int MakeupExamHour { get; set; }
+        [Column(Order = 3)]
+        [ForeignKey("Professor")]
+        public int MarcaProf { get; set; }
+        [Key]
+        [Column(Order = 4)]
+        [ForeignKey("Subject")]
+        public int IdDisciplina { get; set; }
+        [Key]
+        [Column(Order = 5)]
+        [ForeignKey("Session")]
+        public int IdSesiune { get; set; }
+        [Key]
+        [Column(Order = 6)]
+        [ForeignKey("AcademicYear")]
+        public int AnUniversitar { get; set; }
+        public DateTime Data { get; set; }
+        public int Ora { get; set; }
+        public string ModEvaluare { get; set; }
+        public int? Durata { get; set; }
 
-        public int MakeupExamTime { get; set; }  //durata restantei 1 ora,2 ore etc
-
-        public string MakeupExamEvaluationMode { get; set; }
-
+        public virtual AcademicYear AcademicYear { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual Session Session { get; set; }
+        public virtual Professor Professor { get; set; }
+        public virtual Classroom Classroom { get; set; }
     }
 }

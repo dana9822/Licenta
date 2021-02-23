@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -9,17 +8,21 @@ namespace GestiuneExamene.Models
 {
     public class Professor
     {
+        //public Profesor()
+        //{
+        //    Acoperire = new HashSet<Acoperire>();
+        //    ProgramareRestanta = new HashSet<ProgramareRestanta>();
+        //}
+
         [Key]
-        [Column(Order = 12)]
-        public int ProfessorId { get; set; }
+        public int MarcaProf { get; set; }
+        [Required]
+        public string Nume { get; set; }
+        [Required]
+        public string Prenume { get; set; }
+        public string GradDidactic { get; set; }
 
-        public string ProfessorFirstName { get; set; }
-
-        public string ProfessorLastName { get; set; }
-
-        public string ProfessorUniversityDegree { get; set; }
-
-        //one to many
-        public ICollection<Coverage> Coverages { get; set; }
+        public virtual ICollection<SubjectCoverage> SubjectCoverages { get; set; }
+        public virtual ICollection<MakeupExam> MakeupExams { get; set; }
     }
 }
