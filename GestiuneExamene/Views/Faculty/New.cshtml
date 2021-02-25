@@ -8,15 +8,15 @@
 
 @using (Html.BeginForm(actionName: "New", controllerName: "Faculty", method: FormMethod.Post))
 {
-    @Html.Label("Name", "Denumire Facultate:")
+    @Html.Label("DenumireFacultate", "Denumire Facultate:")
     <br />
-    @Html.TextBoxFor(b => b.Name, null, new { placeholder = "Introduceti denumirea facultatii:", @class = "formcontrol" })
-    @Html.ValidationMessageFor(b => b.Name, "", new { @class = "text-danger" })
+    @Html.TextBoxFor(b => b.DenumireFacultate, null, new { placeholder = "Introduceti denumirea facultatii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.DenumireFacultate, "", new { @class = "text-danger" })
     <br />
-    @Html.Label("Adress", "Adresa:")
+    @Html.Label("AdresaFacultate", "Adresa:")
     <br />
-    @Html.TextBoxFor(b => b.Adress, null, new { placeholder = "Introduceti adresa facultatii:", @class = "formcontrol" })
-    @Html.ValidationMessageFor(b => b.Adress, "", new { @class = "text-danger" })
+    @Html.TextBoxFor(b => b.AdresaFacultate, null, new { placeholder = "Introduceti adresa facultatii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.AdresaFacultate, "", new { @class = "text-danger" })
     <br />
     <br />
     <br />

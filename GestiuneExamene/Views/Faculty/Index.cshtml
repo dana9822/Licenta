@@ -3,12 +3,12 @@
     @foreach (var faculties in ViewBag.Faculties)
     {
         <div class="panel-body">
-            @Html.Label("Name", "Denumire:")
-            <br /> <p>@faculties.Name</p>
-            @Html.Label("Adress", "Adresa:")
+            @Html.Label("DenumireFacultate", "Denumire:")
+            <br /> <p>@faculties.DenumireFacultate</p>
+            @Html.Label("AdresaFacultate", "Adresa:")
             <br />
-            <p>@faculties.Adress</p>
-            @using (Html.BeginForm(actionName: "Detalii", controllerName: "Faculty", method: FormMethod.Get, routeValues: new { id = faculties.FacultyId }))
+            <p>@faculties.AdresaFacultate</p>
+            @using (Html.BeginForm(actionName: "Details", controllerName: "Faculty", method: FormMethod.Get, routeValues: new { id = faculties.IdFacultate }))
             {
                 <button class="btn btn-primary">Details</button>
             }

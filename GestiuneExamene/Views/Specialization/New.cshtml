@@ -1,0 +1,33 @@
+﻿@model GestiuneExamene.Models.Specialization
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Specialization", method: FormMethod.Post))
+{
+    @Html.Label("DenumireSpecializare", "Denumire Specializare:")
+    <br />
+    @Html.TextBoxFor(b => b.DenumireSpecializare, null, new { placeholder = "Introduceti denumirea specializarii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.DenumireSpecializare, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("FormaInvatamant", "Forma Invatamant:")
+    <br />
+    @Html.DropDownList("FormaInvatamant", new List<SelectListItem>
+                 {
+                    new SelectListItem{ Text="Licenta", Value = "Licenta" },
+                    new SelectListItem{ Text="Master", Value = "Master" },
+                    new SelectListItem{ Text="Doctorat", Value = "Doctorat" }
+                 })
+    <br />
+    <br />
+    @Html.DropDownListFor(b => b.IdFacultate, new SelectList(Model.FacultiesList, "Value", "Text"), "Choose a faculty", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.IdFacultate, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+

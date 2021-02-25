@@ -4,19 +4,19 @@
 }
 
 <h2>@ViewBag.Name</h2>
-@Html.Label("Name", "Denumire:")
-<br /> <p>@Model.Name</p>
-@Html.Label("Adress", "Adresa:")
-<br /> <p>@Model.Adress</p>
+@Html.Label("DenumireFacultate", "Denumire:")
+<br /> <p>@Model.DenumireFacultate</p>
+@Html.Label("AdresaFacultate", "Adresa:")
+<br /> <p>@Model.AdresaFacultate</p>
 <br />
 
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Faculty", method: FormMethod.Get, routeValues:
-new { id = Model.FacultyId }))
+new { id = Model.IdFacultate }))
 {
     <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
 }
 @using (Html.BeginForm(actionName: "Delete", controllerName: "Faculty", method: FormMethod.Post, routeValues:
-new { id = Model.FacultyId }))
+new { id = Model.IdFacultate }))
 {
     @Html.HttpMethodOverride(HttpVerbs.Delete)
     <button class="btn btn-primary col-lg-1" type="submit">Delete</button>

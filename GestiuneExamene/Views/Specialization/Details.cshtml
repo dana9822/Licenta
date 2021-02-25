@@ -1,0 +1,22 @@
+﻿@model GestiuneExamene.Models.Specialization
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.Label("DenumireSpecializare", "Denumire Specializare:")
+<br /> <p>@Model.DenumireSpecializare</p>
+@Html.Label("FormaInvatamant", "Forma Invatamant:")
+<br /> <p>@Model.FormaInvatamant</p>
+@if (Model.Faculty != null)
+{@Html.Label("Faculty", "Apartenenta:")
+<br />
+<p>@Model.Faculty.DenumireFacultate</p>
+}
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Specialization", method: FormMethod.Get, routeValues:
+new { id = Model.IDSpecializare }))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+<br />
+

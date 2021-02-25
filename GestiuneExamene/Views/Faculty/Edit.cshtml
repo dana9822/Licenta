@@ -8,18 +8,18 @@
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Faculty"))
 {
     @Html.HttpMethodOverride(HttpVerbs.Put)
-    @Html.HiddenFor(b => b.FacultyId) <!--camp hidden id -->
+    @Html.HiddenFor(b => b.IdFacultate) <!--camp hidden id -->
     <br />
-    @Html.Label("Name", "Denumire facultate:")
+    @Html.Label("DenumireFacultate", "Denumire facultate:")
     <br />
-    @Html.EditorFor(b => b.Name, new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.Name, "", new { @class = "text-danger" })
+    @Html.EditorFor(b => b.DenumireFacultate, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.DenumireFacultate, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("Adress", "Adresa:")
+    @Html.Label("AdresaFacultate", "Adresa:")
     <br />
-    @Html.Editor("Adress", new { htmlAttributes = new { @class = "form-control" } })
-    @Html.ValidationMessageFor(b => b.Adress, "", new { @class = "text-danger" })
+    @Html.Editor("AdresaFacultate", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.AdresaFacultate, "", new { @class = "text-danger" })
     <br />
     <br />
 
