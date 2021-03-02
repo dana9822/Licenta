@@ -1,0 +1,34 @@
+﻿@model GestiuneExamene.Models.Professor
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Professor", method: FormMethod.Post))
+{
+    @Html.Label("Nume", "Nume:")
+    <br />
+    @Html.TextBoxFor(b => b.Nume, null, new { placeholder = "Introduceti numele cadrului didactic:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Nume, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Prenume", "Preume:")
+    <br />
+    @Html.TextBoxFor(b => b.Prenume, null, new { placeholder = "Introduceti prenumele cadrului didactic:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Prenume, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("GradDidactic", "Grad didactic:")
+    <br />
+    @Html.DropDownList("GradDidactic", new List<SelectListItem>
+                 {
+                    new SelectListItem{ Text="Profesor", Value = "Profesor" },
+                    new SelectListItem{ Text="Conferentiar", Value = "Conferentiar" },
+                    new SelectListItem{ Text="Lector", Value = "Lector" },
+                    new SelectListItem{ Text="Asistent", Value = "Asistent" }
+                 })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+

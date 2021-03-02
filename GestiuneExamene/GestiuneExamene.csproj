@@ -171,6 +171,7 @@
     <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfessorController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -194,6 +195,10 @@
     <Compile Include="Migrations\202102230112581_UpdatesToModelProperites4.cs" />
     <Compile Include="Migrations\202102230112581_UpdatesToModelProperites4.Designer.cs">
       <DependentUpon>202102230112581_UpdatesToModelProperites4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202103020957115_UpdatesToModelProperites5.cs" />
+    <Compile Include="Migrations\202103020957115_UpdatesToModelProperites5.Designer.cs">
+      <DependentUpon>202103020957115_UpdatesToModelProperites5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
@@ -282,6 +287,8 @@
     <Content Include="Views\Specialization\Index.cshtml" />
     <Content Include="Views\Specialization\New.cshtml" />
     <Content Include="Views\Specialization\Details.cshtml" />
+    <Content Include="Views\Professor\Index.cshtml" />
+    <Content Include="Views\Professor\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -314,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102230112581_UpdatesToModelProperites4.resx">
       <DependentUpon>202102230112581_UpdatesToModelProperites4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103020957115_UpdatesToModelProperites5.resx">
+      <DependentUpon>202103020957115_UpdatesToModelProperites5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

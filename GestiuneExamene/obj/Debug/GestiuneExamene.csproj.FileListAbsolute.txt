@@ -220,3 +220,4 @@ C:\Users\gheoda\Desktop\Dana\Licenta\GestiuneExamene_Repo\Licenta\GestiuneExamen
 C:\Users\gheoda\Desktop\Dana\Licenta\GestiuneExamene_Repo\Licenta\GestiuneExamene\obj\Debug\GestiuneExamene.csprojAssemblyReference.cache
 C:\Users\gheoda\Desktop\Dana\Licenta\GestiuneExamene_Repo\Licenta\GestiuneExamene\obj\Debug\GestiuneExamene.Migrations.UpdatesToModelProperites3.resources
 C:\Users\gheoda\Desktop\Dana\Licenta\GestiuneExamene_Repo\Licenta\GestiuneExamene\obj\Debug\GestiuneExamene.Migrations.UpdatesToModelProperites4.resources
+C:\Users\gheoda\Desktop\Dana\Licenta\GestiuneExamene_Repo\Licenta\GestiuneExamene\obj\Debug\GestiuneExamene.Migrations.UpdatesToModelProperites5.resources

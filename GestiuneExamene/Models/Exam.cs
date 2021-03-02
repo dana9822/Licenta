@@ -49,6 +49,8 @@ namespace GestiuneExamene.Models
         public DateTime Data { get; set; }
         public int Ora { get; set; }
         public string Durata { get; set; }
+        public int ProfTitular { get; set; }
+        public int ProfSupraveghetor { get; set; }
 
         public virtual Group Group { get; set; }
         public virtual Subject Subject { get; set; }
