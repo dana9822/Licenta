@@ -1,0 +1,22 @@
+﻿@model GestiuneExamene.Models.Professor
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.Label("Nume", "Nume profesor:")
+<br /> <p>@Model.Nume</p>
+@Html.Label("Prenume", "Prenume profesor:")
+<br /> <p>@Model.Prenume</p>
+@if (Model.GradDidactic != null)
+{@Html.Label("GradDidactic", "Grad didactic:")
+<br />
+<p>@Model.GradDidactic</p>
+}
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Professor", method: FormMethod.Get, routeValues:
+new { id = Model.MarcaProf }))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+<br />
+

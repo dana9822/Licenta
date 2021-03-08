@@ -1,0 +1,42 @@
+﻿@model GestiuneExamene.Models.Classroom
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Classroom</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Building.DenumireCorp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Building.DenumireCorp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrLocuri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrLocuri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipSala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipSala)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

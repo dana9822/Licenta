@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GestiuneExamene.Models.SubjectAllocation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialization.DenumireSpecializare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudyYear.AnStudiu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.DenumireDisciplina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semestru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipEvaluare)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialization.DenumireSpecializare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudyYear.AnStudiu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.DenumireDisciplina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semestru)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipEvaluare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

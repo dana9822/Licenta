@@ -17,7 +17,15 @@ namespace GestiuneExamene.Models
         [Column(Order = 1)]
         [ForeignKey("AcademicYear")]
         public int AnUniversitar { get; set; }
+        [Key]
+        [Column(Order = 2)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IdSessionYear { get; set; }
+        [DataType(DataType.Date)]
+        [Index(IsUnique = true)]
         public DateTime DataInceput { get; set; }
+        [DataType(DataType.Date)]
+        //[DisplayFormat(ApplyFormatInEditMode = true,DataFormatString = "{0:dd/mm/yyyy}")]
         public DateTime DataFinal { get; set; }
 
         public virtual AcademicYear AcademicYear { get; set; }

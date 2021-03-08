@@ -46,6 +46,7 @@ namespace GestiuneExamene.Models
         [ForeignKey("Subject")]
         public int IdDisciplina { get; set; }
         public string ModEvaluare { get; set; }
+        [DataType(DataType.Date)]
         public DateTime Data { get; set; }
         public int Ora { get; set; }
         public string Durata { get; set; }

@@ -17,6 +17,7 @@ namespace GestiuneExamene.Models
         //}
         [Key]
         [Column(Order = 0)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdGrupa { get; set; }
         [Key]
         [Column(Order = 1)]

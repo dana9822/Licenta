@@ -1,0 +1,58 @@
+﻿@model GestiuneExamene.Models.Group
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Group</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademicYear.AnUniversitar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicYear.AnUniversitar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Specialization.DenumireSpecializare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Specialization.DenumireSpecializare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudyYear.AnStudiu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudyYear.AnStudiu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nrGrupa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nrGrupa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NrStudenti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NrStudenti)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

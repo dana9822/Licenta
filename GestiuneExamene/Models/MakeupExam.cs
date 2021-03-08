@@ -37,6 +37,12 @@ namespace GestiuneExamene.Models
         [Column(Order = 6)]
         [ForeignKey("AcademicYear")]
         public int AnUniversitar { get; set; }
+        [Key]
+        [Column(Order = 7)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int IdMakeupExam { get; set; }
+        [DataType(DataType.Date)]
+        [Index(IsUnique = true)]
         public DateTime Data { get; set; }
         public int Ora { get; set; }
         public string ModEvaluare { get; set; }
