@@ -136,5 +136,97 @@ namespace GestiuneExamene.Controllers
             }
             base.Dispose(disposing);
         }
+
+        // My Methods :
+
+        public ActionResult MyIndex()
+        {
+            List<Group> groups = db.Groups.ToList();
+            ViewBag.Groups = groups;
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult New()
+        {
+            Group group = new Group
+            {
+                SpecializationsList = GetAllSpecializations() ,
+                StudyYearsList = GetAllStudyYears() ,
+                AcademicYearsList = GetAllAcademicalYears()
+                
+            };
+            return View(group);
+        }
+
+        [HttpPost]
+        public ActionResult New(Group groupRequest)
+        {
+            try
+            {
+                groupRequest.SpecializationsList = GetAllSpecializations();
+                groupRequest.StudyYearsList = GetAllStudyYears();
+                groupRequest.AcademicYearsList = GetAllAcademicalYears();
+                if (ModelState.IsValid) // ModelState - model binding corect si nu sunt incalcate reguli de validare
+                {
+                    groupRequest.Specialization = db.Specializations.FirstOrDefault(p => p.IDSpecializare.Equals(1));
+                    groupRequest.StudyYear = db.StudyYears.FirstOrDefault(p => p.StudyYearId.Equals(1));
+                    groupRequest.AcademicYear = db.AcademicYears.FirstOrDefault(p => p.AcademicYearId.Equals(1));
+                    db.Groups.Add(groupRequest);
+                    db.SaveChanges();
+                    return RedirectToAction("Index"); // RedirectToAction - redirect catre actiunea Index din acelasi controller
+                }
+                return View(groupRequest);
+            }
+            catch (Exception e)
+            {
+                return View(groupRequest);
+            }
+        }
+
+        [NonAction] // metoda folosita pentru logica interna
+        private IEnumerable<SelectListItem> GetAllSpecializations()
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var cover in db.Specializations.ToList())
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = cover.IDSpecializare.ToString(),
+                    Text = cover.DenumireSpecializare
+                });
+            }
+            return selectList;
+        }
+
+        [NonAction] // metoda folosita pentru logica interna
+        private IEnumerable<SelectListItem> GetAllStudyYears()
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var cover in db.StudyYears.ToList())
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = cover.StudyYearId.ToString(),
+                    Text = cover.AnStudiu
+                });
+            }
+            return selectList;
+        }
+
+        [NonAction] // metoda folosita pentru logica interna
+        private IEnumerable<SelectListItem> GetAllAcademicalYears()
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var cover in db.AcademicYears.ToList())
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = cover.AcademicYearId.ToString(),
+                    Text = cover.AnUniversitar
+                });
+            }
+            return selectList;
+        }
     }
 }

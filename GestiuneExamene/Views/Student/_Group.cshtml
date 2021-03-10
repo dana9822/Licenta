@@ -1,0 +1,24 @@
+﻿@model IEnumerable<GestiuneExamene.Models.Group>
+
+
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcademicYear.AnUniversitar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialization.DenumireSpecializare)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudyYear.AnStudiu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nrGrupa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NrStudenti)
+        </td>
+    </tr>
+}

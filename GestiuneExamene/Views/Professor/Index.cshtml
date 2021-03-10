@@ -1,21 +1,24 @@
 ﻿@{
-    ViewBag.Title = "Professors"; } <h2>@ViewBag.Title</h2>
-    @foreach (var professors in ViewBag.Professors)
-    {
-        <div class="panel-body">
-            @Html.Label("Nume", "Nume:")
-            <br /> <p>@professors.Nume</p>
-            @Html.Label("Prenume", "Prenume:")
-            <br />
-            <p>@professors.Prenume</p>
-             @Html.Label("GradDidactic", "Grad didactic:")
-            <br /> <p>@professors.GradDidactic</p>
-            @using (Html.BeginForm(actionName: "Details", controllerName: "Professor", method: FormMethod.Get, routeValues: new { id = professors.MarcaProf }))
-            {
-                <button class="btn btn-primary">Details</button>
-            }
-        </div>
-    }
+    ViewBag.Title = "Professors"; }
 
-    @Html.ActionLink("Adauga profesor", "New")
+<h2>@ViewBag.Title</h2>
+
+@foreach (var professors in ViewBag.Professors)
+{
+    <div class="panel-body">
+        @Html.Label("Nume", "Nume:")
+        <br /> <p>@professors.Nume</p>
+        @Html.Label("Prenume", "Prenume:")
+        <br />
+        <p>@professors.Prenume</p>
+        @Html.Label("GradDidactic", "Grad didactic:")
+        <br /> <p>@professors.GradDidactic</p>
+        @using (Html.BeginForm(actionName: "Details", controllerName: "Professor", method: FormMethod.Get, routeValues: new { id = professors.MarcaProf }))
+        {
+            <button class="btn btn-primary">Details</button>
+        }
+    </div>
+}
+
+@Html.ActionLink("Adauga profesor", "New")
 

@@ -14,79 +14,95 @@ namespace GestiuneExamene.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Building
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(db.Buildings.ToList());
-        }
-
-        // GET: Building/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Building building = db.Buildings.Find(id);
-            if (building == null)
-            {
-                return HttpNotFound();
-            }
-            return View(building);
-        }
-
-        // GET: Building/Create
-        public ActionResult Create()
-        {
+            List<Building> buildings = db.Buildings.ToList();
+            ViewBag.Buildings = buildings;
             return View();
         }
 
-        // POST: Building/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdCorp,DenumireCorp,Adresa")] Building building)
+        [HttpGet]
+        public ActionResult Details(int? id)
         {
-            if (ModelState.IsValid)
+            if (id.HasValue)
             {
-                db.Buildings.Add(building);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                Building building = db.Buildings.Find(id);
+                if (building != null)
+                {
+                    return View(building);
+                }
+                return HttpNotFound("Couldn't find the building with id " + id.ToString() + "!");
             }
+            return HttpNotFound("Missing building id parameter!");
+        }
 
+        [HttpGet]
+        public ActionResult New()
+        {
+            Building building = new Building();
             return View(building);
         }
 
-        // GET: Building/Edit/5
+        [HttpPost]
+        public ActionResult New(Building buildingRequest)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Buildings.Add(buildingRequest);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                return View(buildingRequest);
+            }
+            catch (Exception e)
+            {
+                return View(buildingRequest);
+            }
+
+        }
+
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                Building building = db.Buildings.Find(id);
+                if (building == null)
+                {
+                    return HttpNotFound("Couldn't find the building with id " + id.ToString());
+                }
+                return View(building);
             }
-            Building building = db.Buildings.Find(id);
-            if (building == null)
-            {
-                return HttpNotFound();
-            }
-            return View(building);
+            return HttpNotFound("Missing building id parameter!");
         }
 
-        // POST: Building/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdCorp,DenumireCorp,Adresa")] Building building)
+        [HttpPut]
+        public ActionResult Edit( Building buildingRequest)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Entry(building).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    Building building = db.Buildings
+                    .SingleOrDefault(b => b.IdCorp.Equals(buildingRequest.IdCorp));
+                    if (TryUpdateModel(building))
+                    {
+                        building.DenumireCorp = buildingRequest.DenumireCorp;
+                        building.Adresa = buildingRequest.Adresa;
+                        db.SaveChanges();
+                    }
+                    return RedirectToAction("Index");
+                }
+                return View(buildingRequest);
             }
-            return View(building);
+            catch (Exception e)
+            {
+                return View(buildingRequest);
+            }
         }
 
         // GET: Building/Delete/5
@@ -123,5 +139,6 @@ namespace GestiuneExamene.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

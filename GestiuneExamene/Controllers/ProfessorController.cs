@@ -33,7 +33,7 @@ namespace GestiuneExamene.Controllers
         {
             try
             {
-                if (ModelState.IsValid) // ModelState - model binding corect si nu sunt incalcate reguli de validare
+                if (ModelState.IsValid)
                 {
                     db.Professors.Add(professorRequest);
                     db.SaveChanges();
@@ -69,8 +69,7 @@ namespace GestiuneExamene.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    Professor professor = db.Professors // expresie LINQ
-                                                                       //.Include("Faculty")
+                    Professor professor = db.Professors
                     .SingleOrDefault(b => b.MarcaProf.Equals(professorRequest.MarcaProf));
                     if (TryUpdateModel(professor))
                     {

@@ -1,13 +1,11 @@
-﻿@model IEnumerable<GestiuneExamene.Models.Building>
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Buildings";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "New")
 </p>
 <table class="table">
     <tr>
@@ -15,23 +13,23 @@
             @Html.Label("DenumireCorp", "Corp")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Adresa)
+            @Html.Label("Adresa", "Adresa")
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var building in ViewBag.Buildings) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.DenumireCorp)
+            @building.DenumireCorp
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Adresa)
+            @building.Adresa
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCorp }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCorp }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCorp })
+            @Html.ActionLink("Edit", "Edit", new { id=building.IdCorp }) |
+            @Html.ActionLink("Details", "Details", new { id=building.IdCorp }) |
+            @Html.ActionLink("Delete", "Delete", new { id=building.IdCorp })
         </td>
     </tr>
 }

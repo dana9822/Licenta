@@ -228,6 +228,10 @@
     <Compile Include="Migrations\202103080155402_UpdatesToModelProperites9.Designer.cs">
       <DependentUpon>202103080155402_UpdatesToModelProperites9.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103092236096_UpdatesToModelProperites10.cs" />
+    <Compile Include="Migrations\202103092236096_UpdatesToModelProperites10.Designer.cs">
+      <DependentUpon>202103092236096_UpdatesToModelProperites10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -361,7 +365,6 @@
     <Content Include="Views\Professor\Index.cshtml" />
     <Content Include="Views\Professor\New.cshtml" />
     <Content Include="Views\Professor\Details.cshtml" />
-    <Content Include="Views\Building\Create.cshtml" />
     <Content Include="Views\Building\Delete.cshtml" />
     <Content Include="Views\Building\Details.cshtml" />
     <Content Include="Views\Building\Edit.cshtml" />
@@ -401,11 +404,6 @@
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
     <Content Include="Views\Group\Index.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
-    <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\SubjectAllocation\Create.cshtml" />
     <Content Include="Views\SubjectAllocation\Delete.cshtml" />
     <Content Include="Views\SubjectAllocation\Details.cshtml" />
@@ -416,6 +414,13 @@
     <Content Include="Views\SubjectCoverage\Details.cshtml" />
     <Content Include="Views\SubjectCoverage\Edit.cshtml" />
     <Content Include="Views\SubjectCoverage\Index.cshtml" />
+    <Content Include="Views\Student\Create.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\_Group.cshtml" />
+    <Content Include="Views\Building\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -463,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202103080155402_UpdatesToModelProperites9.resx">
       <DependentUpon>202103080155402_UpdatesToModelProperites9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103092236096_UpdatesToModelProperites10.resx">
+      <DependentUpon>202103092236096_UpdatesToModelProperites10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

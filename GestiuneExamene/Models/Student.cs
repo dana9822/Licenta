@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GestiuneExamene.Models
 {
@@ -34,11 +35,15 @@ namespace GestiuneExamene.Models
         [Column(Order = 4)]
         public int Matricola { get; set; }
         public string Username { get; set; }
+        public string Parola { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
         public string StatusStudent { get; set; }
 
         public virtual Group Group { get; set; }
         public virtual ICollection<MakeupExamRequest> MakeupExamRequests { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem> GroupsList { get; set; }
     }
 }
