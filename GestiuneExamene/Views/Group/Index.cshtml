@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<GestiuneExamene.Models.Group>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Groups";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.Label("AnUniversitar", "An universitar")
+            @Html.Label("DenumireSpecializare", "Specializare")
         </th>
         <th>
-            @Html.Label("DenumireSpecializare", "Specializare")
+            @Html.Label("nrGrupa", "Grupa")
         </th>
         <th>
             @Html.Label("AnStudiu", "Anul de studiu")
         </th>
         <th>
-            @Html.Label("nrGrupa", "Grupa")
+            @Html.Label("AnUniversitar", "An universitar")
         </th>
         <th>
             @Html.Label("NrStudenti", "Nr. Studenti")
@@ -29,22 +29,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var group in ViewBag.Groups) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.AcademicYear.AnUniversitar)
+            @group.Specialization.DenumireSpecializare
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Specialization.DenumireSpecializare)
+            @group.nrGrupa
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.StudyYear.AnStudiu)
+            @group.StudyYear.AnStudiu
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.nrGrupa)
+            @group.AcademicYear.AnUniversitar
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NrStudenti)
+            @group.NrStudenti
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
