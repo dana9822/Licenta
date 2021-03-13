@@ -10,10 +10,8 @@ namespace GestiuneExamene.Controllers
     [Authorize(Roles = "Admin")]
     public class SpecializationController : Controller
     {
-        // GET: Specialization
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Specializations
         [HttpGet]
         public ActionResult Index()
         {
@@ -39,12 +37,12 @@ namespace GestiuneExamene.Controllers
             try
             {
                 specializationRequest.FacultiesList = GetAllFaculties();
-                if (ModelState.IsValid) // ModelState - model binding corect si nu sunt incalcate reguli de validare
+                if (ModelState.IsValid)
                 {
                     specializationRequest.Faculty = db.Faculties.FirstOrDefault(p => p.IdFacultate.Equals(1));
                     db.Specializations.Add(specializationRequest);
                     db.SaveChanges();
-                    return RedirectToAction("Index"); // RedirectToAction - redirect catre actiunea Index din acelasi controller
+                    return RedirectToAction("Index");
                 }
                 return View(specializationRequest);
             }
@@ -114,12 +112,12 @@ namespace GestiuneExamene.Controllers
         private IEnumerable<SelectListItem> GetAllFaculties()
         {
             var selectList = new List<SelectListItem>();
-            foreach (var cover in db.Faculties.ToList())
+            foreach (var faculty in db.Faculties.ToList())
             {
                 selectList.Add(new SelectListItem
                 {
-                    Value = cover.IdFacultate.ToString(),
-                    Text = cover.DenumireFacultate
+                    Value = faculty.IdFacultate.ToString(),
+                    Text = faculty.DenumireFacultate
                 });
             }
             return selectList;

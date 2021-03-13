@@ -1,0 +1,41 @@
+﻿@model GestiuneExamene.Models.Classroom
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Classroon", method: FormMethod.Post))
+{
+    @Html.Label("IdCorp", "Corp:")
+    <br />
+    @Html.DropDownListFor(b => b.IdCorp, new SelectList(Model.BuildingsList, "Value", "Text"), "Choose a building", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.IdCorp, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("NrSala", "Sala:")
+    <br />
+    @Html.TextBoxFor(b => b.NrSala, null, new { placeholder = "Introduceti denumirea salii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.NrSala, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Etaj", "Etaj:")
+    <br />
+    @Html.TextBoxFor(b => b.Etaj, null, new { placeholder = "Introduceti etajul:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Etaj, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("NrLocuri", "Numar locuri:")
+    <br />
+    @Html.TextBoxFor(b => b.NrLocuri, null, new { placeholder = "Introduceti nr. de locuri din sala:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.NrLocuri, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("TipSala", "Tipul salii:")
+    <br />
+    @Html.TextBoxFor(b => b.TipSala, null, new { placeholder = "Introduceti tipul salii:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.TipSala, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+

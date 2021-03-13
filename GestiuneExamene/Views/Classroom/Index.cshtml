@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<GestiuneExamene.Models.Classroom>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Classrooms";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "New")
 </p>
 <table class="table">
     <tr>
@@ -29,22 +29,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var classroom in ViewBag.Classrooms) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Building.DenumireCorp)
+            @classroom.Building.DenumireCorp
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NrSala)
+            @classroom.NrSala
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Etaj)
+            @classroom.Etaj
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NrLocuri)
+            @classroom.NrLocuri
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TipSala)
+            @classroom.TipSala
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

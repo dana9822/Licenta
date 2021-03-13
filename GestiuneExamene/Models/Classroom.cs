@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace GestiuneExamene.Models
 {
@@ -26,5 +27,8 @@ namespace GestiuneExamene.Models
         public virtual Building Building { get; set; }
         public virtual ICollection<MakeupExam> MakeupExams { get; set; }
         public virtual ICollection<Exam> Exams { get; set; }
+
+        [NotMapped]
+        public IEnumerable<SelectListItem> BuildingsList { get; set; }
     }
 }
