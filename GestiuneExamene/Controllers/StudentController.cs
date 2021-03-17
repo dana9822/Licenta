@@ -39,7 +39,10 @@ namespace GestiuneExamene.Controllers
         // GET: Student/Create
         public ActionResult Create()
         {
-            ViewBag.IdGrupa = new SelectList(db.Groups, "IdGrupa", "IdGrupa");
+            ViewBag.IdGrupa = new SelectList(db.Groups, "IdGrupa", "nrGrupa");
+            ViewBag.IdSPec = new SelectList(db.Groups, "IdSpecializare", "DenumireSpecializare");
+            ViewBag.AnStudiu = new SelectList(db.Groups, "AnStudiuId", "StudyYear");
+            ViewBag.AnUniv = new SelectList(db.Groups, "AnUniversitarId", "AnUniversitar");
             return View();
         }
 
@@ -86,6 +89,37 @@ namespace GestiuneExamene.Controllers
         {
             if (ModelState.IsValid)
             {
+                int OIdGrupa = Convert.ToInt32(Request["IdGrupa"]);
+                int OIdSpec = Convert.ToInt32(Request["IdSpec"]);
+                int OAnStudiu = Convert.ToInt32(Request["AnStudiu"]);
+                int OAnUniv = Convert.ToInt32(Request["LanguageID"]);
+
+                var services = db.Students.Where(a => a.IdGrupa == OIdGrupa)
+                                           .Where(a => a.IdSpec == OIdSpec)
+                                           .Where(a => a.AnStudiu == OAnStudiu)
+                                           .Where(a => a.AnUniv == OAnUniv);
+                /* foreach (var s in services)
+                {
+                    db.Schedule.Remove(s);
+                }
+
+                db.Schedule.Add(schedule);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    return RedirectToAction("Index");
+                }
+                db.Entry(schedule).State = EntityState.Modified;
+                return RedirectToAction("Index");
+            }
+            ViewBag.DayID = new SelectList(db.Days, "DayID", "Day", schedule.DayID);
+            ViewBag.LanguageID = new SelectList(db.Languages, "LanguageID", "Language", schedule.LanguageID);
+            ViewBag.LocationID = new SelectList(db.Locations, "LocationID", "Location", schedule.LocationID);
+            ViewBag.TimeID = new SelectList(db.Times, "TimeID", "Time", schedule.TimeID);
+            return View(schedule);*/
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

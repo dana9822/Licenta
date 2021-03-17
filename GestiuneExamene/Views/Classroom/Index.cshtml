@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<GestiuneExamene.Models.Classroom>
 
 @{
-    ViewBag.Title = "Classrooms";
+    ViewBag.Title = "Index";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "New")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -29,29 +29,29 @@
         <th></th>
     </tr>
 
-@foreach (var classroom in ViewBag.Classrooms) {
-    <tr>
-        <td>
-            @classroom.Building.DenumireCorp
-        </td>
-        <td>
-            @classroom.NrSala
-        </td>
-        <td>
-            @classroom.Etaj
-        </td>
-        <td>
-            @classroom.NrLocuri
-        </td>
-        <td>
-            @classroom.TipSala
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Building.DenumireCorp)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NrSala)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Etaj)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.NrLocuri)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TipSala)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
 }
 
 </table>

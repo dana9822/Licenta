@@ -14,100 +14,87 @@ namespace GestiuneExamene.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [HttpGet]
+        // GET: Classroom
         public ActionResult Index()
         {
-            List<Classroom> classrooms = db.Classrooms.ToList();
-            ViewBag.Classrooms = classrooms;
-            return View();
+            var classrooms = db.Classrooms.Include(c => c.Building);
+            return View(classrooms.ToList());
         }
 
-        [HttpGet]
-        public ActionResult New()
+        // GET: Classroom/Details/5
+        public ActionResult Details(int? id)
         {
-            Classroom classroom = new Classroom
+            if (id == null)
             {
-                BuildingsList = GetAllBuildings()
-            };
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Classroom classroom = db.Classrooms.Find(id);
+            if (classroom == null)
+            {
+                return HttpNotFound();
+            }
             return View(classroom);
         }
 
-        [HttpPost]
-        public ActionResult New(Classroom classroomRequest)
+        // GET: Classroom/Create
+        public ActionResult Create()
         {
-            try
-            {
-                classroomRequest.BuildingsList = GetAllBuildings();
-                if (ModelState.IsValid)
-                {
-                    classroomRequest.Building = db.Buildings.FirstOrDefault(p => p.IdCorp.Equals(1));
-                    db.Classrooms.Add(classroomRequest);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                return View(classroomRequest);
-            }
-            catch (Exception e)
-            {
-                return View(classroomRequest);
-            }
+            ViewBag.IdCorp = new SelectList(db.Buildings, "IdCorp", "DenumireCorp");
+            return View();
         }
 
-        [HttpGet]
+        // POST: Classroom/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "IdCorp,NrSala,Etaj,NrLocuri,TipSala")] Classroom classroom)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Classrooms.Add(classroom);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.IdCorp = new SelectList(db.Buildings, "IdCorp", "DenumireCorp", classroom.IdCorp);
+            return View(classroom);
+        }
+
+        // GET: Classroom/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id.HasValue)
+            if (id == null)
             {
-                Classroom classroom = db.Classrooms.Find(id);
-                if (classroom == null)
-                {
-                    return HttpNotFound("Couldn't find the classroom with id " + id.ToString());
-                }
-                return View(classroom);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return HttpNotFound("Missing classroom id parameter!");
+            Classroom classroom = db.Classrooms.Find(id);
+            if (classroom == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.IdCorp = new SelectList(db.Buildings, "IdCorp", "DenumireCorp", classroom.IdCorp);
+            return View(classroom);
         }
 
-        [HttpPut]
-        public ActionResult Edit(Classroom classroomRequest)
+        // POST: Classroom/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "IdCorp,NrSala,Etaj,NrLocuri,TipSala")] Classroom classroom)
         {
-            try
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    Classroom classroom = db.Classrooms
-                    .SingleOrDefault(b => b.IdCorp.Equals(classroomRequest.IdCorp));
-                    if (TryUpdateModel(classroom))
-                    {
-                        classroom.NrLocuri = classroomRequest.NrLocuri;
-                        classroom.TipSala = classroomRequest.TipSala;
-                        db.SaveChanges();
-                    }
-                    return RedirectToAction("Index");
-                }
-                return View(classroomRequest);
+                db.Entry(classroom).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch (Exception e)
-            {
-                return View(classroomRequest);
-            }
+            ViewBag.IdCorp = new SelectList(db.Buildings, "IdCorp", "DenumireCorp", classroom.IdCorp);
+            return View(classroom);
         }
 
-        [HttpGet]
-        public ActionResult Details(int? id)   // PK E COMPUSA !!!!! PK = idCorp + nrSala + etaj , idCorp = FK
-        {
-            if (id.HasValue)
-            {
-                Classroom classroom = db.Classrooms.Find(id);
-                if (classroom != null)
-                {
-                    return View(classroom);
-                }
-                return HttpNotFound("Couldn't find the classroom with id " + id.ToString() + "!");
-            }
-            return HttpNotFound("Missing classroom id parameter!");
-        }
-
+        // GET: Classroom/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -122,6 +109,7 @@ namespace GestiuneExamene.Controllers
             return View(classroom);
         }
 
+        // POST: Classroom/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -139,21 +127,6 @@ namespace GestiuneExamene.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        [NonAction]
-        private IEnumerable<SelectListItem> GetAllBuildings()
-        {
-            var selectList = new List<SelectListItem>();
-            foreach (var building in db.Buildings.ToList())
-            {
-                selectList.Add(new SelectListItem
-                {
-                    Value = building.IdCorp.ToString(),
-                    Text = building.DenumireCorp
-                });
-            }
-            return selectList;
         }
     }
 }

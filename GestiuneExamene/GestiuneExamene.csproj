@@ -369,10 +369,6 @@
     <Content Include="Views\Building\Details.cshtml" />
     <Content Include="Views\Building\Edit.cshtml" />
     <Content Include="Views\Building\Index.cshtml" />
-    <Content Include="Views\Classroom\Delete.cshtml" />
-    <Content Include="Views\Classroom\Details.cshtml" />
-    <Content Include="Views\Classroom\Edit.cshtml" />
-    <Content Include="Views\Classroom\Index.cshtml" />
     <Content Include="Views\StudyYear\Create.cshtml" />
     <Content Include="Views\StudyYear\Delete.cshtml" />
     <Content Include="Views\StudyYear\Details.cshtml" />
@@ -420,8 +416,12 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\_Group.cshtml" />
     <Content Include="Views\Building\New.cshtml" />
-    <Content Include="Views\Classroom\New.cshtml" />
     <Content Include="Views\Group\New.cshtml" />
+    <Content Include="Views\Classroom\Create.cshtml" />
+    <Content Include="Views\Classroom\Delete.cshtml" />
+    <Content Include="Views\Classroom\Details.cshtml" />
+    <Content Include="Views\Classroom\Edit.cshtml" />
+    <Content Include="Views\Classroom\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

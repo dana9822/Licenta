@@ -6,3 +6,34 @@
 
 <h2>New</h2>
 
+@using (Html.BeginForm(actionName: "New", controllerName: "Group", method: FormMethod.Post))
+{
+    @Html.Label("IdSpecializare", "Specializare:")
+    <br />
+    @Html.DropDownListFor(b => b.IdSpecializare, new SelectList(Model.SpecializationsList, "Value", "Text"), "Choose a specialization.", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.IdSpecializare, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("AnStudiuId", "An Studiu:")
+    <br />
+    @Html.DropDownListFor(b => b.AnStudiuId, new SelectList(Model.StudyYearsList, "Value", "Text"), "Choose a study year.", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.AnStudiuId, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("AnUniversitarId", "An Universitar:")
+    <br />
+    @Html.DropDownListFor(b => b.AnUniversitarId, new SelectList(Model.AcademicYearsList, "Value", "Text"), "Choose a study year.", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.AnUniversitarId, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("nrGrupa", "Grupa:")
+    <br />
+    @Html.TextBoxFor(b => b.nrGrupa, null, new { placeholder = "Introduceti grupa:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.nrGrupa, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("NrStudenti", "Numar Studenti:")
+    <br />
+    @Html.TextBoxFor(b => b.NrStudenti, null, new { placeholder = "Introduceti nr de studenti:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.NrStudenti, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
