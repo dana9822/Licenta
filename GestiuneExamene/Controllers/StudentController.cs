@@ -14,57 +14,44 @@ namespace GestiuneExamene.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Student
         public ActionResult Index()
         {
-            var students = db.Students.Include(s => s.Group);
-            return View(students.ToList());
-        }
-
-        // GET: Student/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Student student = db.Students.Find(id);
-            if (student == null)
-            {
-                return HttpNotFound();
-            }
-            return View(student);
-        }
-
-        // GET: Student/Create
-        public ActionResult Create()
-        {
-            ViewBag.IdGrupa = new SelectList(db.Groups, "IdGrupa", "nrGrupa");
-            ViewBag.IdSPec = new SelectList(db.Groups, "IdSpecializare", "DenumireSpecializare");
-            ViewBag.AnStudiu = new SelectList(db.Groups, "AnStudiuId", "StudyYear");
-            ViewBag.AnUniv = new SelectList(db.Groups, "AnUniversitarId", "AnUniversitar");
+            List<Student> students = db.Students.ToList();
+            ViewBag.Students = students;
             return View();
         }
 
-        // POST: Student/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdGrupa,IdSpec,AnStudiu,AnUniv,Matricola,Username,Parola,Nume,Prenume,StatusStudent")] Student student)
+        public ActionResult New()
         {
-            if (ModelState.IsValid)
+            Student student = new Student
             {
-                db.Students.Add(student);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                GroupsList = GetAllGroups(),
 
-            ViewBag.IdGrupa = new SelectList(db.Groups, "IdGrupa", "IdGrupa", student.IdGrupa);
+            };
             return View(student);
         }
 
-        // GET: Student/Edit/5
+        [HttpPost]
+        public ActionResult New(Student studentRequest)
+        {
+            try
+            {
+                studentRequest.GroupsList = GetAllGroups();
+                if (ModelState.IsValid)
+                {
+                    studentRequest.Group = db.Groups.FirstOrDefault(p => p.IdGrupa.Equals(1));
+                    db.Students.Add(studentRequest);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(studentRequest);
+            }
+            catch (Exception e)
+            {
+                return View(studentRequest);
+            }
+        }
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,9 +67,6 @@ namespace GestiuneExamene.Controllers
             return View(student);
         }
 
-        // POST: Student/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdGrupa,IdSpec,AnStudiu,AnUniv,Matricola,Username,Parola,Nume,Prenume,StatusStudent")] Student student)
@@ -128,7 +112,20 @@ namespace GestiuneExamene.Controllers
             return View(student);
         }
 
-        // GET: Student/Delete/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Student student = db.Students.Find(id);
+            if (student == null)
+            {
+                return HttpNotFound();
+            }
+            return View(student);
+        }
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -143,7 +140,6 @@ namespace GestiuneExamene.Controllers
             return View(student);
         }
 
-        // POST: Student/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -161,6 +157,21 @@ namespace GestiuneExamene.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [NonAction] // metoda folosita pentru logica interna
+        private IEnumerable<SelectListItem> GetAllGroups()
+        {
+            var selectList = new List<SelectListItem>();
+            foreach (var gr in db.Groups.ToList())
+            {
+                selectList.Add(new SelectListItem
+                {
+                    Value = gr.IdGrupa.ToString(),
+                    Text = gr.Specialization.DenumireSpecializare + " " + gr.nrGrupa + " " + gr.AcademicYear.AnUniversitar
+                });
+            }
+            return selectList;
         }
     }
 }

@@ -1,0 +1,50 @@
+﻿@model GestiuneExamene.Models.Student
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Student", method: FormMethod.Post))
+{
+    @Html.Label("IdGrupa", "Grupa:")
+    <br />
+    @Html.DropDownListFor(b => b.IdGrupa, new SelectList(Model.GroupsList, "Value", "Text"), "Choose a group.", new { @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.IdGrupa, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Matricola", "Matricola:")
+    <br />
+    @Html.TextBoxFor(b => b.Matricola, null, new { placeholder = "Introduceti matricola:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Matricola, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Username", "Username:")
+    <br />
+    @Html.TextBoxFor(b => b.Username, null, new { placeholder = "Introduceti username:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Username, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Parola", "Parola:")
+    <br />
+    @Html.TextBoxFor(b => b.Parola, null, new { placeholder = "Introduceti parola:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Parola, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Nume", "Nume:")
+    <br />
+    @Html.TextBoxFor(b => b.Nume, null, new { placeholder = "Introduceti numele:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Nume, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Prenume", "Prenume:")
+    <br />
+    @Html.TextBoxFor(b => b.Prenume, null, new { placeholder = "Introduceti prenumele:", @class = "formcontrol" })
+    @Html.ValidationMessageFor(b => b.Prenume, "", new { @class = "text-danger" })
+    <br />
+    @Html.DropDownList("StatusStudent", new List<SelectListItem>
+                 {
+                    new SelectListItem{ Text="Activ", Value = "Activ" },
+                    new SelectListItem{ Text="Inactiv", Value = "Inactiv" },
+                 })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}

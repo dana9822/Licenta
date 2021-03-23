@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GestiuneExamene.Models.MakeupExamRequest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AcademicYear.AnUniversitar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session.DenumireSesiune)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.DenumireDisciplina)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AcademicYear.AnUniversitar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session.DenumireSesiune)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.DenumireDisciplina)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

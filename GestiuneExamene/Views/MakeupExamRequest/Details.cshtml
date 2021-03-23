@@ -1,0 +1,50 @@
+﻿@model GestiuneExamene.Models.MakeupExamRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MakeupExamRequest</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademicYear.AnUniversitar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicYear.AnUniversitar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.DenumireSesiune)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.DenumireSesiune)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.DenumireDisciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.DenumireDisciplina)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

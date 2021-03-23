@@ -171,9 +171,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BuildingController.cs" />
     <Compile Include="Controllers\ClassroomController.cs" />
+    <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\GroupController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MakeupExamController.cs" />
+    <Compile Include="Controllers\MakeupExamRequestController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfessorController.cs" />
     <Compile Include="Controllers\SessionController.cs" />
@@ -394,7 +397,6 @@
     <Content Include="Views\Subject\Details.cshtml" />
     <Content Include="Views\Subject\Edit.cshtml" />
     <Content Include="Views\Subject\Index.cshtml" />
-    <Content Include="Views\Group\Create.cshtml" />
     <Content Include="Views\Group\Delete.cshtml" />
     <Content Include="Views\Group\Details.cshtml" />
     <Content Include="Views\Group\Edit.cshtml" />
@@ -409,7 +411,6 @@
     <Content Include="Views\SubjectCoverage\Details.cshtml" />
     <Content Include="Views\SubjectCoverage\Edit.cshtml" />
     <Content Include="Views\SubjectCoverage\Index.cshtml" />
-    <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
@@ -422,6 +423,22 @@
     <Content Include="Views\Classroom\Details.cshtml" />
     <Content Include="Views\Classroom\Edit.cshtml" />
     <Content Include="Views\Classroom\Index.cshtml" />
+    <Content Include="Views\Student\New.cshtml" />
+    <Content Include="Views\MakeupExam\Create.cshtml" />
+    <Content Include="Views\MakeupExam\Delete.cshtml" />
+    <Content Include="Views\MakeupExam\Details.cshtml" />
+    <Content Include="Views\MakeupExam\Edit.cshtml" />
+    <Content Include="Views\MakeupExam\Index.cshtml" />
+    <Content Include="Views\MakeupExamRequest\Create.cshtml" />
+    <Content Include="Views\MakeupExamRequest\Delete.cshtml" />
+    <Content Include="Views\MakeupExamRequest\Details.cshtml" />
+    <Content Include="Views\MakeupExamRequest\Edit.cshtml" />
+    <Content Include="Views\MakeupExamRequest\Index.cshtml" />
+    <Content Include="Views\Exam\Create.cshtml" />
+    <Content Include="Views\Exam\Delete.cshtml" />
+    <Content Include="Views\Exam\Details.cshtml" />
+    <Content Include="Views\Exam\Edit.cshtml" />
+    <Content Include="Views\Exam\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

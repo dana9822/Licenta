@@ -1,0 +1,90 @@
+﻿@model GestiuneExamene.Models.MakeupExam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MakeupExam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademicYear.AnUniversitar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicYear.AnUniversitar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Classroom.TipSala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classroom.TipSala)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Professor.Nume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Professor.Nume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.DenumireSesiune)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.DenumireSesiune)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.DenumireDisciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.DenumireDisciplina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModEvaluare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModEvaluare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durata)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

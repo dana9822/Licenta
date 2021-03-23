@@ -1,0 +1,98 @@
+﻿@model GestiuneExamene.Models.Exam
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Classroom.TipSala)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classroom.TipSala)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Group.IdGrupa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Group.IdGrupa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session.DenumireSesiune)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session.DenumireSesiune)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.DenumireDisciplina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.DenumireDisciplina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModEvaluare)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModEvaluare)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfTitular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfTitular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfSupraveghetor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProfSupraveghetor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -7,57 +7,69 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "New")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Group.Specialization.DenumireSpecializare)
+            @Html.Label("DenumireSpecializare", "Specializare")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Group.IdGrupa)
+            @Html.Label("nrGrupa", "Grupa")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Username)
+            @Html.Label("AnStudiu", "Anul de studiu")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Parola)
+            @Html.Label("AnUniversitar", "An universitar")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nume)
+            @Html.Label("Matricola", "Matricola")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Prenume)
+            @Html.Label("Username", "Username")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.StatusStudent)
+            @Html.Label("Nume", "Nume")
+        </th>
+        <th>
+            @Html.Label("Prenume", "Prenume")
+        </th>
+        <th>
+            @Html.Label("StatusStudent", "StatusStudent")
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var student in ViewBag.Students)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Group.Specialization.DenumireSpecializare)
+                @student.Group.Specialization.DenumireSpecializare
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Group.nrGrupa)
+                @student.Group.nrGrupa
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Username)
+                @student.Group.StudyYear.AnStudiu
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Parola)
+                @student.Group.AcademicYear.AnUniversitar
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Nume)
+                @student.Matricola
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Prenume)
+                @student.Username
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.StatusStudent)
+                @student.Nume
+            </td>
+            <td>
+                @student.Prenume
+            </td>
+            <td>
+                @student.StatusStudent
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
